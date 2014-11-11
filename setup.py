@@ -6,6 +6,7 @@ setup(name='kao_project',
       author='Chris Loew',
       author_email='cloew123@gmail.com',
       #url='http://www.python.org/sigs/distutils-sig/',
-      packages=['kao_project'],
+      packages=['kao_project',
+                     'kao_project.commands'],
       scripts=['kao_project/scripts/kproj']
      )
