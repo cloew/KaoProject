@@ -12,3 +12,8 @@ class Path:
     def filepath(self):
         """ Return the actual file path """
         return os.path.join(os.environ[self.envVar], self.pathFromEnvVar)
+        
+    @property
+    def filepathWithEnvVar(self):
+        """ Return the actual file path """
+        return os.path.join("${0}".format(self.envVar), self.pathFromEnvVar)

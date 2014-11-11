@@ -28,4 +28,4 @@ class ProjectExports:
     @property
     def filepath(self):
         """ Return the actual file path """
-        return self.project.path.filepath
+        return self.project.path.filepathWithEnvVar
