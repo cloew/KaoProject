@@ -24,7 +24,7 @@ class GitExtension:
         os.chdir(parent.filepath)
         return self.pull(['git', 'pull'])
         
-    def onChange(self):
+    def onChange(self, parent):
         """ Do nothing when the project has changed """
         pass
         

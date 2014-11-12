@@ -15,13 +15,19 @@ class Project:
         
     def initialize(self):
         """ Initialize the project """
-        for extension in self.extensions:
-            extension.initialize(self)
+        if any([extension.initialize(self) for extension in self.extensions]):
+            self.onChange()
         
     def update(self):
         """ Update the project """
+        if any([extension.update(self) for extension in self.extensions]):
+            self.onChange()
+                
+    def onChange(self):
+        """ Call on change for each extension """
         for extension in self.extensions:
-            extension.update(self)
+            extension.onChange(self)
+        
         
     @property
     def commandName(self):
