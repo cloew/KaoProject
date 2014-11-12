@@ -8,6 +8,11 @@ class Project:
         self.path = path
         self.extensions = extensions
         
+    def update(self):
+        """ Update the project """
+        for extension in self.extensions:
+            extension.update(self)
+        
     @property
     def commandName(self):
         """ Return the command name for the project """
