@@ -21,9 +21,6 @@ class Update:
     def update(self, projectName):
         """ Update the project """
         project = ProjectFactory.load(projectName)
-        if project is None:
-            print "No such Project: {0}".format(project)
-        else:
-            project.update()
+        project.update()
     
 RegisterCommand(Update)
