@@ -6,7 +6,7 @@ from kao_project.project_factory import ProjectFactory
 from kao_command import RegisterCommand
 
 class Update:
-    """ Represents a command to export the project settings """
+    """ Represents a command to update a project """
     command = "update"
     description = "Update a single project"
     
