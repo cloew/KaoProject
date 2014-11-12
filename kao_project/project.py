@@ -28,7 +28,6 @@ class Project:
         for extension in self.extensions:
             extension.onChange(self)
         
-        
     @property
     def commandName(self):
         """ Return the command name for the project """

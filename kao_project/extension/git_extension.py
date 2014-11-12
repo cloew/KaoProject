@@ -1,7 +1,9 @@
+from extension import Extension
+
 import os
 import subprocess
 
-class GitExtension:
+class GitExtension(Extension):
     """ Represents the git info of a project """
     NO_NEW_DATA = "Already up-to-date."
     
@@ -23,10 +25,6 @@ class GitExtension:
         """ Update the git project """
         os.chdir(parent.filepath)
         return self.pull(['git', 'pull'])
-        
-    def onChange(self, parent):
-        """ Do nothing when the project has changed """
-        pass
         
     def pull(self, command):
         """ Pull from the origin """
