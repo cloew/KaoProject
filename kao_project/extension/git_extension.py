@@ -3,6 +3,7 @@ import subprocess
 
 class GitExtension:
     """ Represents the git info of a project """
+    NO_NEW_DATA = "Already up-to-date."
     
     def __init__(self, url):
         """ Initialize the Git Extension """
@@ -20,4 +21,6 @@ class GitExtension:
     def update(self, parent):
         """ Update the git project """
         os.chdir(parent.filepath)
-        subprocess.call(['git', 'pull'])
+        process = subprocess.Popen(['git', 'pull'], stdout=subprocess.PIPE)
+        output = process.communicate()[0]
+        return process.returncode == 0 and self.NO_NEW_DATA != output.strip()
