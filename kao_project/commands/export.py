@@ -10,13 +10,6 @@ class Export:
     command = "export"
     description = "Export Project aliases"
     
-    def __init__(self):
-        """ Initialize with the destination file and projects """
-        # path = Path('kao_lib_dir', 'KaoConsole')
-        # project = Project("KaoConsole", path)
-        projects = ProjectFactory.loadAll()
-        self.projectExports = [ProjectExports(project) for project in projects]
-    
     def addArguments(self, parser):
         """ Add arguments to the parser """
         parser.add_argument('destination', action='store', help='Destination file for the bash export and alias file')
@@ -27,8 +20,10 @@ class Export:
         
     def write(self, destination):
         """ Write the file """
+        projects = ProjectFactory.loadAll()
+        projectExports = [ProjectExports(project) for project in projects]
         with open(destination, 'w') as file:
-            projectLines = ["\n".join(project.getLines()) for project in self.projectExports]
+            projectLines = ["\n".join(project.getLines()) for project in projectExports]
             file.write("\n\n".join(projectLines))
     
 RegisterCommand(Export)
