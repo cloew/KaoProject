@@ -2,10 +2,11 @@
 class Project:
     """ Represents a project """
     
-    def __init__(self, name, path):
+    def __init__(self, name, path, extensions=[]):
         """ Initialize the project with its name and the path to its location on the file system """
         self.name = name
         self.path = path
+        self.extensions = extensions
         
     @property
     def commandName(self):

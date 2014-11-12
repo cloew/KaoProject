@@ -1,5 +1,6 @@
 from path import Path
 from project import Project
+from kao_project.extension.extension_factory import ExtensionFactory
 
 from kao_factory.data_source_factory import DataSourceFactory
 from kao_factory.factory import Factory
@@ -13,6 +14,7 @@ PROJECTS_FILENAME = os.path.expanduser("~/.projects.json")
 PathFactory = Factory(Path, [PrimitiveParameter("envVar"), PrimitiveParameter("path")])
 
 parameters = [PrimitiveParameter("name"),
-                    ComplexParameter("path", PathFactory.load)]
+                    ComplexParameter("path", PathFactory.load),
+                    ComplexParameter("extensions", ExtensionFactory.loadAll)]
     
 ProjectFactory = DataSourceFactory(Project, parameters, JsonSource(PROJECTS_FILENAME), "name")
