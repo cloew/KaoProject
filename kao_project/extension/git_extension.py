@@ -29,6 +29,7 @@ class GitExtension(Extension):
     def pull(self, command):
         """ Pull from the origin """
         process = subprocess.Popen(command, stdout=subprocess.PIPE)
-        output = process.communicate()[0]
-        return process.returncode == 0 and self.NO_NEW_DATA != output.strip()
+        output = process.communicate()[0].strip()
+        print output
+        return process.returncode == 0 and self.NO_NEW_DATA != output
         
