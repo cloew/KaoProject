@@ -3,7 +3,7 @@ class ProjectExports:
     """ Represents the project bash exports and aliases for a Project """
     
     def __init__(self, project):
-        """ Intiialize the Project Exports with the Project to build the exports for """
+        """ Initialize the Project Exports with the Project to build the exports for """
         self.project = project
     
     def getLines(self):
@@ -18,7 +18,7 @@ class ProjectExports:
     @property
     def goToAlias(self):
         """ Return the text for the alias command to go to this project """
-        return 'alias a-{0}="cd {1}"'.format(self.commandName, self.filepath)
+        return 'alias a-{0}="cd {1}"'.format(self.commandName, self.srcpath)
         
     @property
     def commandName(self):
@@ -29,3 +29,8 @@ class ProjectExports:
     def filepath(self):
         """ Return the actual file path """
         return self.project.path.filepathWithEnvVar
+        
+    @property
+    def srcpath(self):
+        """ Return the actual file path """
+        return self.project.path.srcpathWithEnvVar

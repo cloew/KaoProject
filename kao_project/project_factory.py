@@ -11,7 +11,7 @@ from kao_factory.Source.json_source import JsonSource
 import os
 
 PROJECTS_FILENAME = os.path.expanduser("~/.projects.json")
-PathFactory = Factory(Path, [PrimitiveParameter("envVar"), PrimitiveParameter("path")])
+PathFactory = Factory(Path, [PrimitiveParameter("envVar"), PrimitiveParameter("path"), PrimitiveParameter("srcPath", optional=True)])
 
 parameters = [PrimitiveParameter("name"),
                     ComplexParameter("path", PathFactory.load),

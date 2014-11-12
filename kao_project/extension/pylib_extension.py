@@ -8,5 +8,5 @@ class PyLibExtension(Extension):
     
     def onChange(self, parent):
         """ Install the library """
-        os.chdir(parent.filepath)
+        os.chdir(parent.srcpath)
         subprocess.call(['python', 'setup.py', 'install'])

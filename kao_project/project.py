@@ -37,3 +37,8 @@ class Project:
     def filepath(self):
         """ Return the actual file path """
         return self.path.filepath
+        
+    @property
+    def srcpath(self):
+        """ Return the source file path """
+        return self.path.srcpath
