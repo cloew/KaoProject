@@ -16,11 +16,21 @@ class Update:
         
     def run(self, arguments):
         """ Run the command """
-        self.update(arguments.project)
+        projectName = arguments.project
+        if projectName != 'all':
+            self.update(projectName)
+        else:
+            self.updateAll()
         
     def update(self, projectName):
         """ Update the project """
         project = ProjectFactory.load(projectName)
         project.update()
+        
+    def updateAll(self):
+        """ Update all the projects """
+        for project in ProjectFactory.loadAll():
+            if project.existsLocally():
+                project.update()
     
 RegisterCommand(Update)
