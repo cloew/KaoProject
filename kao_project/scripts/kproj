@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/python
 from kao_command import SetScriptName, Run
 
 import sys
@@ -10,4 +10,4 @@ def main(args):
     Run(args)
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+	main(sys.argv[1:])
