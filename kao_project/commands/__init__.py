@@ -1,3 +1,3 @@
 import export
-import initialize
+import install
 import update
