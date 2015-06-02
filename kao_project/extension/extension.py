@@ -2,8 +2,8 @@
 class Extension:
     """ Represents a project extension """
     
-    def initialize(self, parent):
-        """ Initialize this extension of the project """
+    def install(self, parent):
+        """ Install this extension of the project """
         pass
         
     def update(self, parent):
