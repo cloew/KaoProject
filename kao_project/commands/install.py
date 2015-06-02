@@ -5,25 +5,25 @@ from kao_project.project_factory import ProjectFactory
 
 from kao_command import RegisterCommand
 
-class Initialize:
-    """ Represents a command to initialize a project """
-    command = "initialize"
-    description = "Initialize a single project"
+class Install:
+    """ Represents a command to install a project """
+    command = "install"
+    description = "Install a single project"
     
     def addArguments(self, parser):
         """ Add arguments to the parser """
-        parser.add_argument('project', action='store', help='Name of the project to initialize')
+        parser.add_argument('project', action='store', help='Name of the project to install')
         
     def run(self, arguments):
         """ Run the command """
-        self.initialize(arguments.project)
+        self.install(arguments.project)
         
-    def initialize(self, projectName):
-        """ Initialize the project """
+    def install(self, projectName):
+        """ Install the project """
         project = ProjectFactory.load(projectName)
         if not project.existsLocally():
-            project.initialize()
+            project.install()
         else:
             print "Project already exists locally:", projectName
     
-RegisterCommand(Initialize)
+RegisterCommand(Install)

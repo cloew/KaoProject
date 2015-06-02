@@ -13,9 +13,9 @@ class Project:
         """ Return if the project exists locally """
         return os.path.exists(self.filepath)
         
-    def initialize(self):
-        """ Initialize the project """
-        if any([extension.initialize(self) for extension in self.extensions]):
+    def install(self):
+        """ Install the project """
+        if any([extension.install(self) for extension in self.extensions]):
             self.onChange()
         
     def update(self):

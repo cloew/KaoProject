@@ -11,7 +11,7 @@ class GitExtension(Extension):
         """ Initialize the Git Extension """
         self.url = url
         
-    def initialize(self, parent):
+    def install(self, parent):
         """ Create the git connection """
         os.mkdir(parent.filepath)
         os.chdir(parent.filepath)
