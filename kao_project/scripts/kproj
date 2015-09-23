@@ -1,13 +1,11 @@
 #!/usr/bin/python
-from kao_command import SetScriptName, Run
+from kao_project import KaoProject
 
 import sys
 
 def main(args):
     """ Run the main file """
-    SetScriptName('kproj')
-    import kao_project.commands
-    Run(args)
+    KaoProject('kproj').run(args)
 
 if __name__ == "__main__":
 	main(sys.argv[1:])

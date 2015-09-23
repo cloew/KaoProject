@@ -3,11 +3,8 @@ from kao_project.project import Project
 from kao_project.project_exports import ProjectExports
 from kao_project.project_factory import ProjectFactory
 
-from kao_command import RegisterCommand
-
 class Install:
     """ Represents a command to install a project """
-    command = "install"
     description = "Install a single project"
     
     def addArguments(self, parser):
@@ -24,6 +21,4 @@ class Install:
         if not project.existsLocally():
             project.install()
         else:
-            print "Project already exists locally:", projectName
-    
-RegisterCommand(Install)
+            print("Project already exists locally:", projectName)
