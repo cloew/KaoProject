@@ -1,3 +1,5 @@
+from kao_command.args import Arg
+
 from kao_project.path import Path
 from kao_project.project import Project
 from kao_project.project_exports import ProjectExports
@@ -6,14 +8,15 @@ from kao_project.project_factory import ProjectFactory
 class Update:
     """ Represents a command to update a project """
     description = "Update a single project"
+    args = [Arg('project', action='store', help='Name of the project to update')]
     
-    def addArguments(self, parser):
-        """ Add arguments to the parser """
-        parser.add_argument('project', action='store', help='Name of the project to update')
+    # def addArguments(self, parser):
+        # """ Add arguments to the parser """
+        # parser.add_argument('project', action='store', help='Name of the project to update')
         
-    def run(self, arguments):
+    def run(self, *, project):
         """ Run the command """
-        projectName = arguments.project
+        projectName = project
         if projectName != 'all':
             self.update(projectName)
         else:

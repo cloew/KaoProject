@@ -1,19 +1,22 @@
-from kao_project.path import Path
-from kao_project.project import Project
-from kao_project.project_exports import ProjectExports
-from kao_project.project_factory import ProjectFactory
+from kao_command.args import Arg
+
+from ..path import Path
+from ..project import Project
+from ..project_exports import ProjectExports
+from ..project_factory import ProjectFactory
 
 class Install:
     """ Represents a command to install a project """
     description = "Install a single project"
+    args = [Arg('project', action='store', help='Name of the project to install')]
     
-    def addArguments(self, parser):
-        """ Add arguments to the parser """
-        parser.add_argument('project', action='store', help='Name of the project to install')
+    # def addArguments(self, parser):
+        # """ Add arguments to the parser """
+        # parser.add_argument('project', action='store', help='Name of the project to install')
         
-    def run(self, arguments):
+    def run(self, *, project):
         """ Run the command """
-        self.install(arguments.project)
+        self.install(project)
         
     def install(self, projectName):
         """ Install the project """

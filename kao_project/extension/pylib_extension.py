@@ -1,4 +1,4 @@
-from extension import Extension
+from .extension import Extension
 
 import os
 import subprocess

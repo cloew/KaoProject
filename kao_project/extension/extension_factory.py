@@ -1,5 +1,5 @@
-from git_extension import GitExtension
-from pylib_extension import PyLibExtension
+from .git_extension import GitExtension
+from .pylib_extension import PyLibExtension
 
 from kao_factory.factory import Factory
 from kao_factory.typed_factory import TypedFactory

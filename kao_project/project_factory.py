@@ -1,6 +1,6 @@
-from path import Path
-from project import Project
-from kao_project.extension.extension_factory import ExtensionFactory
+from .path import Path
+from .project import Project
+from .extension.extension_factory import ExtensionFactory
 
 from kao_factory.data_source_factory import DataSourceFactory
 from kao_factory.factory import Factory
