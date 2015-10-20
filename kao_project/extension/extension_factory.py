@@ -1,10 +1,7 @@
 from .git_extension import GitExtension
 from .pylib_extension import PyLibExtension
 
-from kao_factory.factory import Factory
-from kao_factory.typed_factory import TypedFactory
-from kao_factory.Parameter.complex_parameter import ComplexParameter
-from kao_factory.Parameter.primitive_parameter import PrimitiveParameter
+from kao_factory import TypedFactory, Factory, FieldArg
 
-ExtensionFactory = TypedFactory('type', {"GIT":Factory(GitExtension, [PrimitiveParameter('url')]),
-                                         "PYLIB":Factory(PyLibExtension, [])})
+ExtensionFactory = TypedFactory('type', {"GIT":Factory(GitExtension, FieldArg('url')),
+                                         "PYLIB":Factory(PyLibExtension)})
