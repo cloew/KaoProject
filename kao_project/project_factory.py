@@ -10,7 +10,7 @@ import os
 PROJECTS_FILENAME = os.path.expanduser("~/.projects.json")
 PathFactory = Factory(Path, FieldArg("envVar"), FieldArg("path"), srcPath=FieldArg("srcPath"))
 
-parameters = [PrimitiveParameter("name"),
+parameters = [FieldArg("name"),
               PathFactory.LoadArg("path"),
               ExtensionFactory.LoadAllArg("extensions")]
     
